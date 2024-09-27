@@ -1,0 +1,12 @@
+services:
+  VtM-DB:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: KakaPoopoo-01
+      MYSQL_USER: Gawain
+      MYSQL_PASSWORD: KakaPoopoo-01
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./sql/base.sql:/docker-entrypoint-initdb.d/base.sql

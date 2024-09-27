@@ -1,0 +1,37 @@
+Database 1: VampireClan
+Table 1: Clans
+
+ClanID (Primary Key): Unique identifier for each vampire clan
+ClanName: The name of the vampire clan (e.g., Ventrue, Tremere, Nosferatu)
+Discipline1: First unique vampiric power associated with the clan
+Discipline2: Second unique vampiric power associated with the clan
+Discipline3: Third unique vampiric power associated with the clan
+Weakness: The specific weakness or flaw associated with the clan
+
+Table 2: Members
+
+MemberID (Primary Key): Unique identifier for each vampire
+Name: The vampire's chosen name or alias
+ClanID (Foreign Key referencing Clans.ClanID): Links the vampire to their clan
+Generation: The vampire's generation, indicating their power and proximity to Caine
+Sire: The name of the vampire who created this vampire
+Age: The vampire's age in years
+Haven: The location where the vampire rests during the day
+
+Database 2: VampireCity
+Table 1: Domains
+
+DomainID (Primary Key): Unique identifier for each domain or territory
+DomainName: The name of the domain or city district
+RulerID (Foreign Key referencing VampireClan.Members.MemberID): Links the domain to the vampire who rules it
+Population: The number of vampires residing in this domain
+ControlledByID (Foreign Key referencing VampireClan.Clans.ClanID): Links the domain to the clan that controls it
+
+Table 2: Locations
+
+LocationID (Primary Key): Unique identifier for each specific location
+LocationName: The name of the location
+DomainID (Foreign Key referencing Domains.DomainID): Links the location to the domain it's in
+Type: The category of the location (e.g., Haven, Elysium, Hunting Ground)
+Description: A brief description of the location and its significance
+SecurityLevel: A rating of how secure or dangerous the location is (e.g., Low, Medium, High)
