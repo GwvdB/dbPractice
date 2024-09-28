@@ -13,7 +13,7 @@ CREATE TABLE `VampireClan`.`Clans` (
     'Tremere',
     'Ventrue'
   ) DEFAULT 'Caitiff',
-  discipline_1 ENUM(
+  `discipline_1` ENUM(
     'Animalism',
     'Auspex',
     'Celerity',
@@ -26,7 +26,7 @@ CREATE TABLE `VampireClan`.`Clans` (
     'Proteam',
     'Thaumaturgy'
   ) NOT NULL,
-  discipline_2 ENUM(
+  `discipline_2` ENUM(
     'Animalism',
     'Auspex',
     'Celerity',
@@ -39,7 +39,7 @@ CREATE TABLE `VampireClan`.`Clans` (
     'Proteam',
     'Thaumaturgy'
   ) NOT NULL,
-  discipline_3 ENUM(
+  `discipline_3` ENUM(
     'Animalism',
     'Auspex',
     'Celerity',
@@ -52,7 +52,7 @@ CREATE TABLE `VampireClan`.`Clans` (
     'Proteam',
     'Thaumaturgy'
   ) NOT NULL,
-  weakness ENUM(
+  `weakness` ENUM(
     'Uncontrolled Temper',
     'Bestial Features',
     'Madness',
@@ -62,21 +62,21 @@ CREATE TABLE `VampireClan`.`Clans` (
   ) NOT NULL
 );
 
--- CREATE TABLE `VampireClan`.`Members` (
---   member_id CHAR(36) NOT NULL PRIMARY KEY DEFAULT (UUID()),
---   member_name VARCHAR(50) NOT NULL,
---   clan_id CHAR(36) NOT NULL,
---   generation ENUM(
-    -- '10th & 11th',
-    -- '12th & 13th',
-    -- '14th & 15th',
-    -- '16th'
-  -- ) NOT NULL,
---   sire VARCHAR(50),
---   age VARCHAR(5) NOT NULL,
---   haven VARCHAR(80),
--- CONSTRAINT fk_clan_id FOREIGN KEY (clan_id) REFERENCES `VampireClan`.`Clans`(clan_id)
--- );
+CREATE TABLE `VampireClan`.`Members` (
+  `member_id` CHAR(36) NOT NULL PRIMARY KEY DEFAULT UUID(),
+  `member_name` VARCHAR(50) NOT NULL,
+  `clan_id` CHAR(36) NOT NULL,
+  `generation` ENUM(
+    '10th & 11th',
+    '12th & 13th',
+    '14th & 15th',
+    '16th'
+  ) NOT NULL,
+  `sire` VARCHAR(50),
+  `age` VARCHAR(5) NOT NULL,
+  `haven` VARCHAR(80),
+CONSTRAINT fk_clan_id FOREIGN KEY (clan_id) REFERENCES `VampireClan`.`Clans`(clan_id)
+);
 
 -- CREATE TABLE `VampireCity`.`Domains` (
 --   domain_id CHAR(36) NOT NULL PRIMARY KEY DEFAULT (UUID()),
