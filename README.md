@@ -52,3 +52,4 @@ This project comes with no guarantees:
 - But it will contain hilarious errors and plenty of "WTF" moments.
 
 ### Fun fact... I broke this too. For some reason my pull request isn't working 😭
+### Please feel free to mess with this file ;)
