@@ -37,11 +37,11 @@ Because you're awesome and have the patience of a saint 🧘 (with me anyway. Yo
 
 ## **5. How to Contribute**
 
-Step 1: Fork this repo.
-Step 2: Brace yourself.
-Step 3: Fix all my bugs (this might take a while…).
-Step 4: Enjoy a muffin 🧁. You've earned it. (I shall make you some. Just tell me what flavour.)
-Step 5: I'll treat you to whatever you want.
+- Step 1: Fork this repo.
+- Step 2: Brace yourself.
+- Step 3: Fix all my bugs (this might take a while…).
+- Step 4: Enjoy a muffin 🧁. You've earned it. (I shall make you some. Just tell me what flavour.)
+- Step 5: I'll treat you to whatever you want.
 
 ## **6. Disclaimer**
 
