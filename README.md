@@ -51,4 +51,4 @@ This project comes with no guarantees:
 - No guarantee that it won't break your computer (sorry in advance).
 - But it will contain hilarious errors and plenty of "WTF" moments.
 
-[^1] Fun fact... I broke this too. For some reason my pull request isn't working 😭
+###Fun fact... I broke this too. For some reason my pull request isn't working 😭
