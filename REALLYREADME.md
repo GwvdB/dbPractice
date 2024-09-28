@@ -29,11 +29,11 @@ Because you're awesome and have the patience of a saint 🧘 (with me anyway. Yo
 
 ## **4. Motivational Quotes**
 
-"With great power comes great responsibility." – But let’s be honest, I’m just hoping not to break your laptop at this point... again.
-"Coding is 10% writing code and 90% Googling how to fix what you just broke." - Or what I broke cause let's face it... I'm good at breaking everything!
-"Behind every great coder is a teacher who didn’t facepalm too hard." - I'm going for mediocre at this point. I'm so used to dancing before I can even crawl.
-"Every time you fix a bug, an angel gets its wings... and another bug is born." - 👼
-"Teach a person to code, and they’ll curse your name for weeks, but they’ll thank you for a lifetime." - Admittedly, I'm not cursing you just yet......... I'm not lieing, I swear!
+- "With great power comes great responsibility." – But let’s be honest, I’m just hoping not to break your laptop at this point... again.
+- "Coding is 10% writing code and 90% Googling how to fix what you just broke." - Or what I broke cause let's face it... I'm good at breaking everything!
+- "Behind every great coder is a teacher who didn’t facepalm too hard." - I'm going for mediocre at this point. I'm so used to dancing before I can even crawl.
+- "Every time you fix a bug, an angel gets its wings... and another bug is born." - 👼
+- "Teach a person to code, and they’ll curse your name for weeks, but they’ll thank you for a lifetime." - Admittedly, I'm not cursing you just yet......... I'm not lieing, I swear!
 
 ## **5. How to Contribute**
 
