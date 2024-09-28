@@ -78,30 +78,30 @@ CREATE TABLE `VampireClan`.`Members` (
 CONSTRAINT fk_clan_id FOREIGN KEY (clan_id) REFERENCES `VampireClan`.`Clans`(clan_id)
 );
 
--- CREATE TABLE `VampireCity`.`Domains` (
---   domain_id CHAR(36) NOT NULL PRIMARY KEY DEFAULT (UUID()),
---   domain_name VARCHAR(50) NOT NULL,
---   ruler_id VARCHAR(50) NOT NULL,
---   population VARCHAR(4) NOT NULL,
---   controlled_by_ID VARCHAR(36) NOT NULL,
--- CONSTRAINT fk_ruler_id FOREIGN KEY (ruler_id) REFERENCES `VampireClan`.`Members`(member_id)
--- CONSTRAINT fk_controlled_by_id FOREIGN KEY (controlled_by_id) REFERENCE `VampireClan`.`Clans` (clan_id)
--- );
+CREATE TABLE `VampireCity`.`Domains` (
+  `domain_id` CHAR(36) NOT NULL PRIMARY KEY DEFAULT UUID(),
+  `domain_name` VARCHAR(50) NOT NULL,
+  `ruler_id` VARCHAR(50) NOT NULL,
+  `population` VARCHAR(4) NOT NULL,
+  `controlled_by_id` VARCHAR(36) NOT NULL,
+CONSTRAINT fk_ruler_id FOREIGN KEY (ruler_id) REFERENCES `VampireClan`.`Members`(member_id),
+CONSTRAINT fk_controlled_by_id FOREIGN KEY (controlled_by_id) REFERENCES `VampireClan`.`Clans` (clan_id)
+);
 
--- CREATE TABLE `VampireCity`.`Locations` (
---   location_id CHAR(36) NOT NULL PRIMARY KEY DEFAULT (UUID())
---   location_name VARCHAR(50) NOT NULL,
---   domain_id CHAR(36) NOT NULL,
---   type ENUM(
---     'Haven',
---     'Elysium',
-    -- 'Hunting Ground'
---   ) NOT NULL,
---   description TINYTEXT NOT NULL,
---   security_level ENUM(
-    -- 'Low',
-    -- 'Medium',
-    -- 'High'
-  -- ) NOT NULL,
--- CONSTRAINT fk_domain_id FOREIGN KEY (domain_id) REFERENCES `VampireCity`.`Domains`(domain_id)
--- );
+CREATE TABLE `VampireCity`.`Locations` (
+  `location_id` CHAR(36) NOT NULL PRIMARY KEY DEFAULT UUID(),
+  `location_name` VARCHAR(50) NOT NULL,
+  `domain_id` CHAR(36) NOT NULL,
+  `type` ENUM(
+    'Haven',
+    'Elysium',
+    'Hunting Ground'
+  ) NOT NULL,
+  `description` TINYTEXT NOT NULL,
+  `security_level` ENUM(
+    'Low',
+    'Medium',
+    'High'
+  ) NOT NULL,
+CONSTRAINT fk_domain_id FOREIGN KEY (domain_id) REFERENCES `VampireCity`.`Domains`(domain_id)
+);
