@@ -19,13 +19,13 @@ Because you're awesome and have the patience of a saint 🧘 (with me anyway. Yo
 
 ## **3. My Amazing (and definitely hilariously terrible) ~~Meltdowns~~ Progress**
 
-- Day 1: Successfully configured the laptop. Victory dance! 💃🎉
-- Day 2: Typed something that might be code. Might also be gibberish. Who can tell?
-- Day 3: Tried to run it. The computer laughed at me.
-- Day 4: Had a heart attack when the laptop wasn't charging... Seriously I thought I broke your laptop...
-- Day 5: Tried running MySQL with my tables. Stared stubbornly at the screen for 4 hours straight. 
-- Day 6: Realized I forgot to write the command properly. You told me to watch out for that. Now I hear your voice in my head.
-- Day 7: Accidentally deleted half the project... send help. 😬 - joke I haven't done this....yet. Gotta watch out with that rm command!
+- **Day 1:** Successfully configured the laptop. Victory dance! 💃🎉
+- **Day 2:** Typed something that might be code. Might also be gibberish. Who can tell?
+- **Day 3:** Tried to run it. The computer laughed at me.
+- **Day 4:** Had a heart attack when the laptop wasn't charging... Seriously I thought I broke your laptop...
+- **Day 5:** Tried running MySQL with my tables. Stared stubbornly at the screen for 4 hours straight. 
+- **Day 6:** Realized I forgot to write the command properly. You told me to watch out for that. Now I hear your voice in my head.
+- **Day 7:** Accidentally deleted half the project... send help. 😬 - joke I haven't done this....yet. Gotta watch out with that rm command!
 
 ## **4. Motivational Quotes**
 
@@ -37,11 +37,11 @@ Because you're awesome and have the patience of a saint 🧘 (with me anyway. Yo
 
 ## **5. How to Contribute**
 
-- Step 1: Fork this repo.
-- Step 2: Brace yourself.
-- Step 3: Fix all my bugs (this might take a while…).
-- Step 4: Enjoy a muffin 🧁. You've earned it. (I shall make you some. Just tell me what flavour.)
-- Step 5: I'll treat you to whatever you want.
+- **Step 1:** Fork this repo.
+- **Step 2:** Brace yourself.
+- **Step 3:** Fix all my bugs (this might take a while…).
+- **Step 4:** Enjoy a muffin 🧁. You've earned it. (I shall make you some. Just tell me what flavour.)
+- **Step 5:** I'll treat you to whatever you want.
 
 ## **6. Disclaimer**
 
