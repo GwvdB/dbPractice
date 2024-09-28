@@ -51,5 +51,5 @@ This project comes with no guarantees:
 - No guarantee that it won't break your computer (sorry in advance).
 - But it will contain hilarious errors and plenty of "WTF" moments.
 
-### Fun fact... I broke this too. For some reason my pull request isn't working 😭
+### Fun fact... I broke this too. For some reason my pull request isn't working 😭 - nvm. I just wasn't looking in the right place. I'm gonna go have dinner now, because I've been at this for far too long and I'm shaking 😆
 ### Please feel free to mess with this file ;)
