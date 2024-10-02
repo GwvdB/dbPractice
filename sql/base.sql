@@ -1,107 +1,160 @@
-CREATE DATABASE `VampireClan`;
-CREATE DATABASE `VampireCity`;
+/*M!999999\- enable the sandbox mode */ 
+-- MariaDB dump 10.19-11.5.2-MariaDB, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: VampireCity
+-- ------------------------------------------------------
+-- Server version	11.5.2-MariaDB-ubu2404
 
-CREATE TABLE `VampireClan`.`Clans` (
-  `clan_id` CHAR(36) NOT NULL PRIMARY KEY DEFAULT UUID(),
-  `clan_name` ENUM(
-    'Caitiff',
-    'Brujah',
-    'Gangrel',
-    'Malkavian',
-    'Nosferatu',
-    'Toreador',
-    'Tremere',
-    'Ventrue'
-  ) DEFAULT 'Caitiff',
-  `discipline_1` ENUM(
-    'Animalism',
-    'Auspex',
-    'Celerity',
-    'Dementation',
-    'Dominate',
-    'Fortitude',
-    'Obfuscate',
-    'Potence',
-    'Presence',
-    'Proteam',
-    'Thaumaturgy'
-  ) NOT NULL,
-  `discipline_2` ENUM(
-    'Animalism',
-    'Auspex',
-    'Celerity',
-    'Dementation',
-    'Dominate',
-    'Fortitude',
-    'Obfuscate',
-    'Potence',
-    'Presence',
-    'Proteam',
-    'Thaumaturgy'
-  ) NOT NULL,
-  `discipline_3` ENUM(
-    'Animalism',
-    'Auspex',
-    'Celerity',
-    'Dementation',
-    'Dominate',
-    'Fortitude',
-    'Obfuscate',
-    'Potence',
-    'Presence',
-    'Proteam',
-    'Thaumaturgy'
-  ) NOT NULL,
-  `weakness` ENUM(
-    'Uncontrolled Temper',
-    'Bestial Features',
-    'Madness',
-    'Horrible Appearance',
-    'Beauty Obsessed',
-    'Refined Palate'
-  ) NOT NULL
-);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*M!100616 SET @OLD_NOTE_VERBOSITY=@@NOTE_VERBOSITY, NOTE_VERBOSITY=0 */;
 
-CREATE TABLE `VampireClan`.`Members` (
-  `member_id` CHAR(36) NOT NULL PRIMARY KEY DEFAULT UUID(),
-  `member_name` VARCHAR(50) NOT NULL,
-  `clan_id` CHAR(36) NOT NULL,
-  `generation` ENUM(
-    '10th & 11th',
-    '12th & 13th',
-    '14th & 15th',
-    '16th'
-  ) NOT NULL,
-  `sire` VARCHAR(50),
-  `age` VARCHAR(5) NOT NULL,
-  `haven` VARCHAR(80),
-CONSTRAINT fk_clan_id FOREIGN KEY (clan_id) REFERENCES `VampireClan`.`Clans`(clan_id)
-);
+--
+-- Current Database: `VampireCity`
+--
 
-CREATE TABLE `VampireCity`.`Domains` (
-  `domain_id` CHAR(36) NOT NULL PRIMARY KEY DEFAULT UUID(),
-  `domain_name` VARCHAR(50) NOT NULL,
-  `ruler_id` VARCHAR(50) NOT NULL,
-  `population` VARCHAR(4) NOT NULL,
-  `controlled_by_id` VARCHAR(36) NOT NULL,
-CONSTRAINT fk_ruler_id FOREIGN KEY (ruler_id) REFERENCES `VampireClan`.`Members`(member_id),
-CONSTRAINT fk_controlled_by_id FOREIGN KEY (controlled_by_id) REFERENCES `VampireClan`.`Clans` (clan_id)
-);
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `VampireCity` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_uca1400_ai_ci */;
 
-CREATE TABLE `VampireCity`.`Locations` (
-  `location_id` CHAR(36) NOT NULL PRIMARY KEY DEFAULT UUID(),
-  `location_name` VARCHAR(50) NOT NULL,
-  `domain_id` CHAR(36) NOT NULL,
-  `type` ENUM(
-    'Haven',
-    'Elysium',
-    'Hunting Ground'
-  ) NOT NULL,
-  `description` TINYTEXT NOT NULL,
-  `security_level` ENUM(
-    'Low',
-    'Medium',
-    'High'
-  ) NOT NULL,
-CONSTRAINT fk_domain_id FOREIGN KEY (domain_id) REFERENCES `VampireCity`.`Domains`(domain_id)
-);
+USE `VampireCity`;
+
+--
+-- Table structure for table `Domains`
+--
+
+DROP TABLE IF EXISTS `Domains`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Domains` (
+  `domain_id` char(36) NOT NULL DEFAULT uuid(),
+  `domain_name` varchar(50) NOT NULL,
+  `ruler_id` varchar(50) NOT NULL,
+  `population` varchar(4) NOT NULL,
+  `controlled_by_id` varchar(36) NOT NULL,
+  PRIMARY KEY (`domain_id`),
+  KEY `fk_ruler_id` (`ruler_id`),
+  KEY `fk_controlled_by_id` (`controlled_by_id`),
+  CONSTRAINT `fk_controlled_by_id` FOREIGN KEY (`controlled_by_id`) REFERENCES `VampireClan`.`Clans` (`clan_id`),
+  CONSTRAINT `fk_ruler_id` FOREIGN KEY (`ruler_id`) REFERENCES `VampireClan`.`Members` (`member_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Domains`
+--
+
+LOCK TABLES `Domains` WRITE;
+/*!40000 ALTER TABLE `Domains` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Domains` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Locations`
+--
+
+DROP TABLE IF EXISTS `Locations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Locations` (
+  `location_id` char(36) NOT NULL DEFAULT uuid(),
+  `location_name` varchar(50) NOT NULL,
+  `domain_id` char(36) NOT NULL,
+  `type` enum('Haven','Elysium','Hunting Ground') NOT NULL,
+  `description` tinytext NOT NULL,
+  `security_level` enum('Low','Medium','High') NOT NULL,
+  PRIMARY KEY (`location_id`),
+  KEY `fk_domain_id` (`domain_id`),
+  CONSTRAINT `fk_domain_id` FOREIGN KEY (`domain_id`) REFERENCES `Domains` (`domain_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Locations`
+--
+
+LOCK TABLES `Locations` WRITE;
+/*!40000 ALTER TABLE `Locations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Locations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Current Database: `VampireClan`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `VampireClan` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_uca1400_ai_ci */;
+
+USE `VampireClan`;
+
+--
+-- Table structure for table `Clans`
+--
+
+DROP TABLE IF EXISTS `Clans`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Clans` (
+  `clan_id` char(36) NOT NULL DEFAULT uuid(),
+  `clan_name` enum('Caitiff','Brujah','Gangrel','Malkavian','Nosferatu','Toreador','Tremere','Ventrue') DEFAULT 'Caitiff',
+  `discipline_1` enum('Animalism','Auspex','Celerity','Dementation','Dominate','Fortitude','Obfuscate','Potence','Presence','Proteam','Thaumaturgy') NOT NULL,
+  `discipline_2` enum('Animalism','Auspex','Celerity','Dementation','Dominate','Fortitude','Obfuscate','Potence','Presence','Proteam','Thaumaturgy') NOT NULL,
+  `discipline_3` enum('Animalism','Auspex','Celerity','Dementation','Dominate','Fortitude','Obfuscate','Potence','Presence','Proteam','Thaumaturgy') NOT NULL,
+  `weakness` enum('Uncontrolled Temper','Bestial Features','Madness','Horrible Appearance','Beauty Obsessed','Refined Palate') NOT NULL,
+  PRIMARY KEY (`clan_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Clans`
+--
+
+LOCK TABLES `Clans` WRITE;
+/*!40000 ALTER TABLE `Clans` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Clans` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Members`
+--
+
+DROP TABLE IF EXISTS `Members`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Members` (
+  `member_id` char(36) NOT NULL DEFAULT uuid(),
+  `member_name` varchar(50) NOT NULL,
+  `clan_id` char(36) NOT NULL,
+  `generation` enum('10th & 11th','12th & 13th','14th & 15th','16th') NOT NULL,
+  `sire` varchar(50) DEFAULT NULL,
+  `age` varchar(5) NOT NULL,
+  `haven` varchar(80) DEFAULT NULL,
+  PRIMARY KEY (`member_id`),
+  KEY `fk_clan_id` (`clan_id`),
+  CONSTRAINT `fk_clan_id` FOREIGN KEY (`clan_id`) REFERENCES `Clans` (`clan_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Members`
+--
+
+LOCK TABLES `Members` WRITE;
+/*!40000 ALTER TABLE `Members` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Members` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
+
+-- Dump completed on 2024-10-02 19:15:31
