@@ -104,7 +104,7 @@ CREATE TABLE `Clans` (
   `discipline_1` enum('Animalism','Auspex','Celerity','Dementation','Dominate','Fortitude','Obfuscate','Potence','Presence','Proteam','Thaumaturgy') NOT NULL,
   `discipline_2` enum('Animalism','Auspex','Celerity','Dementation','Dominate','Fortitude','Obfuscate','Potence','Presence','Proteam','Thaumaturgy') NOT NULL,
   `discipline_3` enum('Animalism','Auspex','Celerity','Dementation','Dominate','Fortitude','Obfuscate','Potence','Presence','Proteam','Thaumaturgy') NOT NULL,
-  `weakness` enum('Uncontrolled Temper','Bestial Features','Madness','Horrible Appearance','Beauty Obsessed','Refined Palate') NOT NULL,
+  `weakness` enum('Uncontrolled Temper','Bestial Features','Madness','Horrible Appearance','Beauty Obsessed','Deficient Bond','Refined Palate') DEFAULT NULL,
   PRIMARY KEY (`clan_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -115,6 +115,13 @@ CREATE TABLE `Clans` (
 
 LOCK TABLES `Clans` WRITE;
 /*!40000 ALTER TABLE `Clans` DISABLE KEYS */;
+INSERT INTO `Clans` VALUES
+('07cd5ef3-8168-11ef-8ff5-0242ac270002','Tremere','Auspex','Dominate','Thaumaturgy','Deficient Bond'),
+('b9d0c09a-8169-11ef-8ff5-0242ac270002','Toreador','Auspex','Celerity','Presence','Beauty Obsessed'),
+('b9d0c47f-8169-11ef-8ff5-0242ac270002','Brujah','Celerity','Potence','Presence','Uncontrolled Temper'),
+('b9d0c4e9-8169-11ef-8ff5-0242ac270002','Nosferatu','Animalism','Obfuscate','Potence','Horrible Appearance'),
+('b9d0c54c-8169-11ef-8ff5-0242ac270002','Ventrue','Dominate','Fortitude','Presence','Refined Palate'),
+('b9d0c59d-8169-11ef-8ff5-0242ac270002','Malkavian','Auspex','Obfuscate','Dominate','Madness');
 /*!40000 ALTER TABLE `Clans` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,6 +152,13 @@ CREATE TABLE `Members` (
 
 LOCK TABLES `Members` WRITE;
 /*!40000 ALTER TABLE `Members` DISABLE KEYS */;
+INSERT INTO `Members` VALUES
+('7cf1d5d4-816b-11ef-8ff5-0242ac270002','Eva','07cd5ef3-8168-11ef-8ff5-0242ac270002','12th & 13th','Katya','77','Griffith Observatory'),
+('c5290093-816e-11ef-8ff5-0242ac270002','Annabelle Li','b9d0c47f-8169-11ef-8ff5-0242ac270002','12th & 13th','Carver','28',NULL),
+('c5290541-816e-11ef-8ff5-0242ac270002','Nelli G','b9d0c09a-8169-11ef-8ff5-0242ac270002','10th & 11th','Chaz Prince','???','Golden Age Jewelry'),
+('c52905e4-816e-11ef-8ff5-0242ac270002','Jasper Heartwood','b9d0c4e9-8169-11ef-8ff5-0242ac270002','12th & 13th','Unknown','???','Griffith Park Labyrinth'),
+('c5290673-816e-11ef-8ff5-0242ac270002','Victor Temple','b9d0c54c-8169-11ef-8ff5-0242ac270002','10th & 11th','Unknown','80s','Club Maharani'),
+('c52906f8-816e-11ef-8ff5-0242ac270002','X','b9d0c59d-8169-11ef-8ff5-0242ac270002','10th & 11th','Therese','???','The Asylum');
 /*!40000 ALTER TABLE `Members` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -157,4 +171,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2024-10-02 19:15:31
+-- Dump completed on 2024-10-03 10:04:18
