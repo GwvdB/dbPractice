@@ -117,7 +117,7 @@ CREATE TABLE `Domains` (
   `domain_id` char(36) NOT NULL DEFAULT uuid(),
   `domain_name` varchar(50) NOT NULL,
   `ruler_id` varchar(50) NOT NULL,
-  `population` varchar(10) DEFAULT NULL,
+  `population` int(20) DEFAULT NULL,
   `controlled_by_id` varchar(36) NOT NULL,
   PRIMARY KEY (`domain_id`),
   KEY `fk_ruler_id` (`ruler_id`),
